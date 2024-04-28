@@ -67,7 +67,7 @@ async function carbon(code, outputPath, option = {}) {
   };
   let url = "https://carbon.now.sh?" + createParameter(parameter);
 
-  return openBrowser(url, outputPath);
+  return openBrowser(url, outputPath, option.puppeteer);
 }
 
 /**
@@ -75,7 +75,7 @@ async function carbon(code, outputPath, option = {}) {
  * @param {String} url - Url for Downloading
  * @param {String} outputPath - Output for File
  */
-async function openBrowser(url, outputPath) {
+async function openBrowser(url, outputPath, optsPuppeteer = {}) {
   // Parse Output Folder
   let output = path.resolve(outputPath);
   let folder = path.dirname(output);
@@ -88,7 +88,7 @@ async function openBrowser(url, outputPath) {
   // Start Puppeteer Session
   const browser = await puppeteer.launch({
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
-    headless: true,
+    headless: "new", ...optsPuppeteer
   });
 
   // Open Page and Go to Carbon Site
