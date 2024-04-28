@@ -1,7 +1,7 @@
 const options = {
   lang: "auto",
   background: "rgba(171, 184, 195, 1)",
-  theme: "dracula",
+  theme: "monokai",
   font: "Hack",
   "window-controls": true,
   "width-adjustment": true,
