@@ -45,7 +45,7 @@ async function carbon(code, outputPath, option = {}) {
     ln: line,
     fl: firstLine,
     wm: watermark,
-  }):
+  });
   let url = "https://carbon.now.sh?" + parameter.toString();
 
   return openBrowser(url, outputPath, option.puppeteer);
